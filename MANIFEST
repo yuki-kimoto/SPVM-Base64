@@ -1,6 +1,9 @@
 Changes
+lib/SPVM/MIME/Base64.c
+lib/SPVM/MIME/Base64.config
+lib/SPVM/MIME/Base64.pm
+lib/SPVM/MIME/Base64.spvm
 Makefile.PL
 MANIFEST
 README
-t/SPVM-MIME-Base64.t
-lib/SPVM/MIME/Base64.pm
+t/lib/TestCase/MIME/Base64.spvm

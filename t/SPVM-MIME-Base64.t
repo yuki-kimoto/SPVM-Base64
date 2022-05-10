@@ -1,18 +1,23 @@
-# Before 'make install' is performed this script should be runnable with
-# 'make test'. After 'make install' it should work as 'perl SPVM-MIME-Base64.t'
-
-#########################
-
-# change 'tests => 1' to 'tests => last_test_to_print';
-
 use strict;
 use warnings;
+use FindBin;
+use lib "$FindBin::Bin/lib";
 
-use Test::More tests => 1;
-BEGIN { use_ok('SPVM::MIME::Base64') };
+use Test::More;
 
-#########################
+use SPVM 'TestCase::MIME::Base64';
 
-# Insert your test code below, the Test::More module is use()ed here so read
-# its man page ( perldoc Test::More ) for help writing this test script.
+# Start objects count
+my $start_memory_blocks_count = SPVM::get_memory_blocks_count();
 
+# SPVM::Webkit::MIME
+{
+  ok(SPVM::TestCase::MIME::Base64->test_basic());
+  ok(SPVM::TestCase::MIME::Base64->test_all());
+}
+
+# All object is freed
+my $end_memory_blocks_count = SPVM::get_memory_blocks_count();
+is($end_memory_blocks_count, $start_memory_blocks_count);
+
+done_testing;
