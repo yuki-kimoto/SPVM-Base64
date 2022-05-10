@@ -20,7 +20,6 @@
 \.o$
 \.bs$
 SPVM.c
-SPVM-.*
 ^core\.
 ^SPVM-
 ^solo/work
