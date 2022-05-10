@@ -8,6 +8,8 @@ our $VERSION = '0.01';
 
 SPVM::MIME::Base64 - Base64 encode/decode
 
+B<SPVM::MIME::Base64 is development release. The offten quit changes will be done without warnings.>
+
 =head1 SYNOPSYS
   
   use MIME::Base64;
