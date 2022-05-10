@@ -1,0 +1,6 @@
+Revision history for Perl extension SPVM::MIME::Base64.
+
+0.01  Tue May 10 10:43:59 2022
+	- original version; created by h2xs 1.23 with options
+		-X SPVM::MIME::Base64
+

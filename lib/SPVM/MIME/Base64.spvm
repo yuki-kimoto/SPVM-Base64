@@ -1,0 +1,10 @@
+class MIME::Base64 {
+  static method main : int ($start_file : string, $args : string[]) {
+    
+    &print_hello_world();
+    
+    return 0;
+  }
+  
+  native static method print_hello_world : void ();
+}

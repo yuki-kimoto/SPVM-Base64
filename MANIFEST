@@ -1,0 +1,6 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/SPVM-MIME-Base64.t
+lib/SPVM/MIME/Base64.pm
