@@ -11,6 +11,10 @@ WriteMakefile(
     #LICENSE           => 'perl',
     #Value must be from legacy list of licenses here
     #https://metacpan.org/pod/Module::Build::API
+    # SPVM::Builder::Util::API is needed for Makefile.PL
+    CONFIGURE_REQUIRES => {
+      'SPVM'              => '0.9610',
+  },
 );
 sub MY::postamble {
   

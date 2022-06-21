@@ -1,7 +1,11 @@
-0.02  2022-06-13
+0.03 2022-06-21
 
-  - Catch up with latest SPVM.
+  * Catch up with SPVM 0.9610.
+
+0.02 2022-06-13
+
+  * Catch up with latest SPVM.
   
-0.01  2022-05-10
+0.01 2022-05-10
 
-  - First development release
+  * First development release

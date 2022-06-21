@@ -45,16 +45,16 @@ int32_t SPVM__MIME__Base64__encode(SPVM_ENV *env, SPVM_VALUE *stack) {
   void* self_obj = stack[0].oval;
   
   if (!stack[1].oval) {
-    return env->die(env, "string must not be undef", "MIME/Base64.c", __LINE__);
+    return env->die(env, stack, "string must not be undef", "MIME/Base64.c", __LINE__);
   }
 
-  const char* input = (const char*)env->get_elems_byte(env, stack[1].oval);
-  const size_t length = env->length(env, stack[1].oval);
+  const char* input = (const char*)env->get_elems_byte(env, stack, stack[1].oval);
+  const size_t length = env->length(env, stack, stack[1].oval);
   const size_t encoded_capacity = calc_encoded_length(length);
   
-  void* obuffer = env->new_byte_array_raw(env, encoded_capacity + 1);
-  env->inc_ref_count(env, obuffer);
-  char* result = (char *)(env->get_elems_byte(env, obuffer));
+  void* obuffer = env->new_byte_array_raw(env, stack, encoded_capacity + 1);
+  env->inc_ref_count(env, stack, obuffer);
+  char* result = (char *)(env->get_elems_byte(env, stack, obuffer));
   size_t result_index = 0;
 
   for (size_t x = 0; x < length; x += 3) {
@@ -72,28 +72,28 @@ int32_t SPVM__MIME__Base64__encode(SPVM_ENV *env, SPVM_VALUE *stack) {
     uint8_t n3 = (uint8_t)n & 63;
 
     if (result_index >= encoded_capacity) {    
-      env->dec_ref_count(env, obuffer);  
-      return env->die(env, "index is over than estimated encoded length", "MIME/Base64.c", __LINE__);
+      env->dec_ref_count(env, stack, obuffer);  
+      return env->die(env, stack, "index is over than estimated encoded length", "MIME/Base64.c", __LINE__);
     }
     result[result_index++] = base64chars[n0];
     if (result_index >= encoded_capacity) {
-      env->dec_ref_count(env, obuffer);
-      return env->die(env, "index is over than estimated encoded length", "MIME/Base64.c", __LINE__);
+      env->dec_ref_count(env, stack, obuffer);
+      return env->die(env, stack, "index is over than estimated encoded length", "MIME/Base64.c", __LINE__);
     }
     result[result_index++] = base64chars[n1];
 
     if (x + 1 < length) {
       if (result_index >= encoded_capacity) {      
-        env->dec_ref_count(env, obuffer);
-        return env->die(env, "index is over than estimated encoded length", "MIME/Base64.c", __LINE__);
+        env->dec_ref_count(env, stack, obuffer);
+        return env->die(env, stack, "index is over than estimated encoded length", "MIME/Base64.c", __LINE__);
       }
       result[result_index++] = base64chars[n2];
     }
 
     if (x + 2 < length) {
       if (result_index >= encoded_capacity) {
-        env->dec_ref_count(env, obuffer);
-        return env->die(env, "index is over than estimated encoded length", "MIME/Base64.c", __LINE__);
+        env->dec_ref_count(env, stack, obuffer);
+        return env->die(env, stack, "index is over than estimated encoded length", "MIME/Base64.c", __LINE__);
       }
       result[result_index++] = base64chars[n3];
     }
@@ -109,18 +109,18 @@ int32_t SPVM__MIME__Base64__encode(SPVM_ENV *env, SPVM_VALUE *stack) {
     }
   }
   if (result_index >= encoded_capacity) {
-    env->dec_ref_count(env, obuffer);
-    return env->die(env, "index is over than estimated encoded length", "MIME/Base64.c", __LINE__);
+    env->dec_ref_count(env, stack, obuffer);
+    return env->die(env, stack, "index is over than estimated encoded length", "MIME/Base64.c", __LINE__);
   }
 
   const size_t encoded_length = result_index;
   result[encoded_length] = 0;
 
-  void* oline = env->new_byte_array_raw(env, encoded_length);
-  int8_t* line = env->get_elems_byte(env, oline);
+  void* oline = env->new_byte_array_raw(env, stack, encoded_length);
+  int8_t* line = env->get_elems_byte(env, stack, oline);
   memcpy(line, result, encoded_length);
 
-  env->dec_ref_count(env, obuffer);
+  env->dec_ref_count(env, stack, obuffer);
   stack[0].oval = oline;
 
   return 0;
@@ -131,19 +131,19 @@ int32_t SPVM__MIME__Base64__decode(SPVM_ENV *env, SPVM_VALUE *stack) {
   void* self_obj = stack[0].oval;
 
   if (!stack[1].oval) {
-    return env->die(env, "string must not be undef", "MIME/Base64.c", __LINE__);
+    return env->die(env, stack, "string must not be undef", "MIME/Base64.c", __LINE__);
   }
 
-  const char* input = (const char*)env->get_elems_byte(env, stack[1].oval);
-  const size_t length = env->length(env, stack[1].oval);
+  const char* input = (const char*)env->get_elems_byte(env, stack, stack[1].oval);
+  const size_t length = env->length(env, stack, stack[1].oval);
   size_t input_index = 0;
   uint32_t buf = 0;
   size_t buf_iter = 0;
 
   const size_t decoded_capacity = calc_decoded_length(length);
-  void* obuffer = env->new_byte_array_raw(env, decoded_capacity + 1);
-  env->inc_ref_count(env, obuffer);
-  char* result = (char *)(env->get_elems_byte(env, obuffer));
+  void* obuffer = env->new_byte_array_raw(env, stack, decoded_capacity + 1);
+  env->inc_ref_count(env, stack, obuffer);
+  char* result = (char *)(env->get_elems_byte(env, stack, obuffer));
   size_t result_index = 0;
 
   while (input_index < length) {
@@ -160,7 +160,7 @@ int32_t SPVM__MIME__Base64__decode(SPVM_ENV *env, SPVM_VALUE *stack) {
       buf_iter++;
       if (buf_iter == 4) {
         if (result_index + 3 > decoded_capacity) {
-          return env->die(env, "index is over than estimated decoded length", "MIME/Base64.c", __LINE__);
+          return env->die(env, stack, "index is over than estimated decoded length", "MIME/Base64.c", __LINE__);
         }
         result[result_index++] = (buf >> 16) & 255;
         result[result_index++] = (buf >> 8) & 255;
@@ -172,13 +172,13 @@ int32_t SPVM__MIME__Base64__decode(SPVM_ENV *env, SPVM_VALUE *stack) {
 
   if (buf_iter == 3) {
     if (result_index + 2 > decoded_capacity) {
-      return env->die(env, "index is over than estimated decoded length", "MIME/Base64.c", __LINE__);
+      return env->die(env, stack, "index is over than estimated decoded length", "MIME/Base64.c", __LINE__);
     }
     result[result_index++] = (buf >> 10) & 255;
     result[result_index++] = (buf >> 2) & 255;
   } else if (buf_iter == 2) {
     if (result_index + 1 > decoded_capacity) {
-      return env->die(env, "index is over than estimated decoded length", "MIME/Base64.c", __LINE__);
+      return env->die(env, stack, "index is over than estimated decoded length", "MIME/Base64.c", __LINE__);
     }
     result[result_index++] = (buf >> 4) & 255;
   }
@@ -186,11 +186,11 @@ int32_t SPVM__MIME__Base64__decode(SPVM_ENV *env, SPVM_VALUE *stack) {
   const size_t decoded_length = result_index;
   result[decoded_length] = 0;
 
-  void* oline = env->new_byte_array_raw(env, decoded_length);
-  int8_t* line = env->get_elems_byte(env, oline);
+  void* oline = env->new_byte_array_raw(env, stack, decoded_length);
+  int8_t* line = env->get_elems_byte(env, stack, oline);
   memcpy(line, result, decoded_length);
 
-  env->dec_ref_count(env, obuffer);
+  env->dec_ref_count(env, stack, obuffer);
   stack[0].oval = oline;
 
   return 0;
