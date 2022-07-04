@@ -1,43 +1,49 @@
-package MIME::Base64;
+package SPVM::MIME::Base64;
 
-our $VERSION = '0.03';
+our $VERSION = '0.01';
 
 1;
 
-=head1 NAME
+=head1 Name
 
-SPVM::MIME::Base64 - Base64 encode/decode
+SPVM::MIME::Base64 - MIME::Base64 is a SPVM module
 
-B<SPVM::MIME::Base64 is development release. The offten quit changes will be done without warnings.>
+=head1 Synopsys
 
-=head1 SYNOPSYS
-  
   use MIME::Base64;
   
-  my $b64 = MIME::Base64->new;
-  my $text = $b64->encode($binary);
-  my $binary = $b64->decode($text);
+=head1 Description
 
-=head1 DESCRIPTION
+MIME::Base64 is a SPVM module.
 
-Base64 encode/decode
+=head1 Static Methods
 
-=head1 METHODS
 
-=head2 new
 
-  static method new : MIME::Base64 ()
+=head1 Instance Methods
 
-Create new L<MIME::Base64> object.
 
-=head2 encode
 
-  method encode : string ($binary : string)
+=head1 Repository
 
-Encode binary data to base64 text.
 
-=head2 decode
 
-  method decode : string ($base64_text : string)
+=head1 Bug Report
 
-Decode encoded Base64 text to binary data.
+
+
+=head1 Support
+
+
+
+=head1 Author
+
+
+
+=head1 Copyright & LICENSE
+
+Copyright YYYY-YYYY AUTHOR_NAME, all rights reserved.
+
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
+

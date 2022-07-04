@@ -1,8 +1,22 @@
 class MIME::Base64 {
-  static method new : MIME::Base64 () {
-    return new MIME::Base64;
+  native static method encode_base64_opt : string ($input : string, $end_of_line : string);
+  static method encode_base64 : string ($input : string) {
+    return &encode_base64_opt($input, undef);
   }
   
-  native method encode : string ($binary : string);
-  native method decode : string ($base64_text : string);
+  native static method decode_base64 : string ($input : string);
+  
+  native static method encoded_base64_length_opt : int ($input : string, $end_of_line : string);
+  static method encoded_base64_length : int ($input : string) {
+    return &encoded_base64_length_opt($input, undef);
+  }
+  
+  native static method decoded_base64_length : int ($input : string);
+  
+  native static method encode_qp_opt : string ($input : string, $end_of_line : string, $binary : int);
+  static method encode_qp : string ($input : string) {
+    return &encode_qp_opt($input, undef, 0);
+  }
+  
+  native static method decode_qp : string ($input : string);
 }
