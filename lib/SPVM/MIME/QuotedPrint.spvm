@@ -1,0 +1,8 @@
+class MIME::QuotedPrint  {
+  native static method encode_qp_opt : string ($input : string, $end_of_line : string, $binary : int);
+  static method encode_qp : string ($input : string) {
+    return &encode_qp_opt($input, undef, 0);
+  }
+  
+  native static method decode_qp : string ($input : string);
+}
