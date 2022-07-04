@@ -9,7 +9,7 @@ our @EXPORT = qw(encode_qp decode_qp);
 
 our $VERSION = '3.17';
 
-use SPVM 'MIME::Base64';
+use SPVM 'MIME::QuotedPrint';
 
 sub spvm_test_impl { 1 };
 
@@ -25,14 +25,14 @@ sub encode_qp($;$$) {
   }
   
   if (@_ <= 1) {
-    $output = SPVM::MIME::Base64->encode_qp($input);
+    $output = SPVM::MIME::QuotedPrint->encode_qp($input);
   }
   else {
     unless (defined $binary) {
       $binary = 0;
     }
     
-    $output = SPVM::MIME::Base64->encode_qp_opt($input, $end_of_line, $binary);
+    $output = SPVM::MIME::QuotedPrint->encode_qp_opt($input, $end_of_line, $binary);
   }
   
   return $output->to_bin;
@@ -43,7 +43,7 @@ sub decode($) { &decode_qp(@_) }
 sub decode_qp($) {
   my ($input) = @_;
   
-  my $output = SPVM::MIME::Base64->decode_qp($input);
+  my $output = SPVM::MIME::QuotedPrint->decode_qp($input);
   
   return $output->to_bin;
 }
