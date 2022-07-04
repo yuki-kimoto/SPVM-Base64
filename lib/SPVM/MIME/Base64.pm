@@ -31,7 +31,7 @@ The list of class methods.
 
 =head2 encode_base64_opt
 
-  static method encode_base64_opt : string ($string : string, $eol : string)
+  static method encode_base64_opt : string ($str : string, $eol : string)
 
 Encode data by calling the encode_base64() function.  The first
 argument is the byte string to encode.  The second argument is the
@@ -43,15 +43,15 @@ to be broken into lines.
 
 =head2 encode_base64
 
-  static method encode_base64 : string ($string : string)
+  static method encode_base64 : string ($str : string)
 
 Alias for the following code using L</"encode_base64_opt">.
 
-  &encode_base64_opt($string, undef);
+  &encode_base64_opt($str, undef);
 
 =head2 decode_base64
 
-  static method decode_base64 : string ($string : string)
+  static method decode_base64 : string ($str : string)
 
 Decode a base64 string by calling the decode_base64() function.  This
 function takes a single argument which is the string to decode and
@@ -63,7 +63,7 @@ are never decoded.
 
 =head2 encoded_base64_length_opt
 
-  static method encoded_base64_length_opt : int ($string : string, $eol : string)
+  static method encoded_base64_length_opt : int ($str : string, $eol : string)
 
 Returns the length that the encoded string would have without actually
 encoding it.  This will return the same value as C<< length(&encode_base64_opt($bytes, $eol)) >>,
@@ -71,15 +71,15 @@ but should be more efficient.
 
 =head2 encoded_base64_length
 
-  static method encoded_base64_length : int ($string : string)
+  static method encoded_base64_length : int ($str : string)
 
 Alias for the following code using L</"encoded_base64_length_opt">.
 
-  &encoded_base64_length_opt($string, undef);
+  &encoded_base64_length_opt($str, undef);
 
 =head2 decoded_base64_length
 
-  static method decoded_base64_length : int ($string : string)
+  static method decoded_base64_length : int ($str : string)
 
 Returns the length that the decoded string would have without actually
 decoding it.  This will return the same value as C<< length(&decode_base64($str)) >>,
