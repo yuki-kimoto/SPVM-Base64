@@ -31,15 +31,15 @@ The list of class methods.
 
 =head2 encode_qp
 
-  static method encode_qp : string ($input : string);
+  static method encode_qp : string ($string : string);
 
 =head2 encode_qp_opt
 
-  static method encode_qp_opt : string ($input : string, $end_of_line : string, $binary : int);
+  static method encode_qp_opt : string ($string : string, $eol : string, $binary : int);
 
 =head2 decode_qp
   
-  static method decode_qp : string ($input : string);
+  static method decode_qp : string ($string : string);
 
 =head1 Repository
 

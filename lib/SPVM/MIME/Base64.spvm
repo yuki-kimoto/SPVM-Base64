@@ -1,15 +1,15 @@
 class MIME::Base64 {
-  native static method encode_base64_opt : string ($input : string, $end_of_line : string);
-  static method encode_base64 : string ($input : string) {
-    return &encode_base64_opt($input, undef);
+  native static method encode_base64_opt : string ($string : string, $eol : string);
+  static method encode_base64 : string ($string : string) {
+    return &encode_base64_opt($string, undef);
   }
   
-  native static method decode_base64 : string ($input : string);
+  native static method decode_base64 : string ($string : string);
   
-  native static method encoded_base64_length_opt : int ($input : string, $end_of_line : string);
-  static method encoded_base64_length : int ($input : string) {
-    return &encoded_base64_length_opt($input, undef);
+  native static method encoded_base64_length_opt : int ($string : string, $eol : string);
+  static method encoded_base64_length : int ($string : string) {
+    return &encoded_base64_length_opt($string, undef);
   }
   
-  native static method decoded_base64_length : int ($input : string);
+  native static method decoded_base64_length : int ($string : string);
 }
