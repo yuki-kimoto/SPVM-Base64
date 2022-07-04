@@ -26,7 +26,7 @@ sub MY::postamble {
   $make_rule .= SPVM::Builder::Util::API::create_make_rule_native("MIME::Base64");
 
   # Native compile make rule
-  $make_rule .= SPVM::Builder::Util::API::create_make_rule_precompile("MIME::Base64");
-  
+  $make_rule .= SPVM::Builder::Util::API::create_make_rule_native("MIME::QuotedPrint");
+
   return $make_rule;
 }
