@@ -17,9 +17,17 @@ SPVM::MIME::QuotedPrint - Encoding and decoding of quoted-printable strings
 
 =head1 Description
 
-MIME::QuotedPrint is a SPVM module.
+C<MIME::QuotedPrint> is a L<SPVM> module to encoding and decoding of quoted-printable strings.
+
+This is a porting of L<MIME::QuotedPrint> to L<SPVM>.
+
+=head1 Caution
+
+L<SPVM> is yet experimental status.
 
 =head1 Class Methods
+
+The list of class methods.
 
 =head2 encode_qp
 
@@ -35,16 +43,19 @@ MIME::QuotedPrint is a SPVM module.
 
 =head1 Repository
 
-
+L<https://github.com/yuki-kimoto/SPVM-MIME-Base64>
 
 =head1 Author
 
+Yuki Kimoto (kimoto.yuki@gmail.com)
 
+=head1 Copyright & License
 
-=head1 Copyright & LICENSE
-
-Copyright YYYY-YYYY AUTHOR_NAME, all rights reserved.
+Copyright 2022-2022 Yuki Kimoto, all rights reserved.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
 
+=head1 See Also
+
+L<SPVM::MIME::Base64>

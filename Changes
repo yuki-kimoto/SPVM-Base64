@@ -1,5 +1,8 @@
 0.04 2022-07-04
-  * 
+  * Imrpve document
+  * Add MIME::QuotedPrint class
+  * Need SPVM 0.9616.
+  * Implement the following methods
   
 0.03 2022-06-21
 

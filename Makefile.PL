@@ -13,7 +13,7 @@ WriteMakefile(
     #https://metacpan.org/pod/Module::Build::API
     # SPVM::Builder::Util::API is needed for Makefile.PL
     CONFIGURE_REQUIRES => {
-      'SPVM'              => '0.9610',
+      'SPVM'              => '0.9616',
   },
 );
 sub MY::postamble {
