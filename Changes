@@ -1,3 +1,6 @@
+0.05 2022-08-04
+  [Pre Requirement Changes]
+    * SPVM 0.9634_01+ is needed.
 0.04 2022-07-04
   * Imrpve document
   * Add MIME::QuotedPrint class
