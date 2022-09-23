@@ -5,11 +5,14 @@ class TestCase::MIME::Base64 {
   static method decode_base64 : int () {
     # Exception
     {
-      eval { MIME::Base64->decode_base64(undef); };
-      unless (Fn->contains($@, "The input must be defined")) {
-        return 0;
+      {
+        eval { MIME::Base64->decode_base64(undef); };
+        unless (Fn->contains($@, "The input must be defined")) {
+          return 0;
+        }
       }
-      return 1;
     }
+    $@ = undef;
+    return 1;
   }
 }
