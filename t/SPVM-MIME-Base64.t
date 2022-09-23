@@ -12,8 +12,7 @@ my $start_memory_blocks_count = SPVM::get_memory_blocks_count();
 
 # SPVM::Webkit::MIME
 {
-  ok(SPVM::TestCase::MIME::Base64->test_basic());
-  ok(SPVM::TestCase::MIME::Base64->test_all());
+  ok(SPVM::TestCase::MIME::Base64->decode_base64());
 }
 
 # All object is freed
