@@ -12,6 +12,7 @@ my $start_memory_blocks_count = SPVM::get_memory_blocks_count();
 
 # SPVM::Webkit::MIME
 {
+  ok(SPVM::TestCase::MIME::Base64->encode_base64());
   ok(SPVM::TestCase::MIME::Base64->decode_base64());
 }
 
