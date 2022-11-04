@@ -29,4 +29,18 @@ class TestCase::MIME::Base64 {
     $@ = undef;
     return 1;
   }
+
+  static method encoded_base64_length : int () {
+    # Exception
+    {
+      {
+        eval { MIME::Base64->encoded_base64_length(undef); };
+        unless (Fn->contains($@, "The input must be defined")) {
+          return 0;
+        }
+      }
+    }
+    $@ = undef;
+    return 1;
+  }
 }
