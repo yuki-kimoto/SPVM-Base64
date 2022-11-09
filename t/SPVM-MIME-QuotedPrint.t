@@ -5,17 +5,15 @@ use lib "$FindBin::Bin/lib";
 
 use Test::More;
 
-use SPVM 'TestCase::MIME::Base64';
+use SPVM 'TestCase::MIME::QuotedPrint';
 
 # Start objects count
 my $start_memory_blocks_count = SPVM::get_memory_blocks_count();
 
 # SPVM::Webkit::MIME
 {
-  ok(SPVM::TestCase::MIME::Base64->encode_base64());
-  ok(SPVM::TestCase::MIME::Base64->decode_base64());
-  ok(SPVM::TestCase::MIME::Base64->encoded_base64_length());
-  ok(SPVM::TestCase::MIME::Base64->decoded_base64_length());
+  ok(SPVM::TestCase::MIME::QuotedPrint->encode_qp());
+  ok(SPVM::TestCase::MIME::QuotedPrint->decode_qp());
 }
 
 # All object is freed

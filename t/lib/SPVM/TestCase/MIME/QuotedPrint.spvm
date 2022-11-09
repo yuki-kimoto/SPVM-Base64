@@ -1,0 +1,32 @@
+class TestCase::MIME::QuotedPrint {
+  use Fn;
+  use MIME::QuotedPrint;
+
+  static method encode_qp : int() {
+    # Exception
+    {
+      {
+        eval { MIME::QuotedPrint->encode_qp(undef); };
+        unless (Fn->contains($@, "The input must be defined")) {
+          return 0;
+        }
+      }
+    $@ = undef;
+    return 1;
+    }
+  }
+
+  static method decode_qp : int () {
+    # Exception
+    {
+      {
+        eval { MIME::QuotedPrint->decode_qp(undef); };
+        unless (Fn->contains($@, "The input must be defined")) {
+          return 0;
+        }
+      }
+    }
+    $@ = undef;
+    return 1;
+  }
+}
