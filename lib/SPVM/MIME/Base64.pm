@@ -77,6 +77,10 @@ L<https://github.com/yuki-kimoto/SPVM-MIME-Base64>
 
 Yuki Kimoto (kimoto.yuki@gmail.com)
 
+=head1 Contributors
+
+Yoshiyuki Itoh(https://github.com/YoshiyukiItoh)
+
 =head1 Copyright & License
 
 Copyright 2022-2022 Yuki Kimoto, all rights reserved.
