@@ -315,13 +315,43 @@ class TestCase::MIME::Base64 {
   }
 
   static method decode_base64 : int () {
+    {
+      my $ok = 1;
+
+      my $decode_tests = [
+        "YWE="   => "aa",
+        " YWE="  =>  "aa",
+        "Y WE="  =>  "aa",
+        "YWE= "  =>  "aa",
+        "Y\nW\r\nE=" =>  "aa",
+
+        # These will generate some warnings
+        "YWE=====" =>  "aa",    # extra padding
+        "YWE"      =>  "aa",    # missing padding
+        "YWFh====" =>  "aaa",
+        "YQ"       =>  "a",
+        "Y"        =>  "",
+        "x=="      =>  "",
+        ""         =>  "",
+      ];
+
+      for (my $i = 0; $i < @$decode_tests; $i += 2) {
+        my $decoded = (mutable string)copy MIME::Base64->decode_base64($decode_tests->[$i]);
+        Fn->chomp($decoded);
+        unless ( $decoded eq $decode_tests->[$i+1]) {
+          $ok = 0;
+        }
+      }
+
+      unless ($ok) {
+        return 0;
+      }
+    }
     # Exception
     {
-      {
-        eval { MIME::Base64->decode_base64(undef); };
-        unless (Fn->contains($@, "The input must be defined")) {
-          return 0;
-        }
+      eval { MIME::Base64->decode_base64(undef); };
+      unless (Fn->contains($@, "The input must be defined")) {
+        return 0;
       }
     }
     $@ = undef;
