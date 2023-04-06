@@ -5,6 +5,8 @@
     * The license is changed to MIT License.
   [Fixed Test Bug]
     * Fixed the test bugs that t/SPVM-MIME-Base64.t and t/SPVM-MIME-QuotedPrint.t failed.
+  [Prerequirement Change]
+    * SPVM 0.9701 is required.
 0.06 2023-02-08
   [Prerequirement Changes]
     * SPVM 0.9691+ is needed.
