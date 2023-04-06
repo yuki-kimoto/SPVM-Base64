@@ -28,6 +28,20 @@ WriteMakefile(
   NORECURS => 1,
   test => {TESTS => 't/*.t'},
   clean => {FILES => ".spvm_build"},
+  META_MERGE => {
+    'meta-spec' => { version => 2 },
+    resources => {
+      repository => {
+        type => 'git',
+        url  => 'https://github.com/yuki-kimoto/SPVM-MIME-Base64.git',
+        web  => 'https://github.com/yuki-kimoto/SPVM-MIME-Base64',
+      },
+    },
+    no_index => {
+      directory => [],
+    }
+  },
+  NORECURS => 1,
   CONFIGURE_REQUIRES => {
     %configure_and_runtime_requires,
   },
