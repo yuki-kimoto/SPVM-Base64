@@ -1,3 +1,6 @@
+0.07 2023-04-06
+  [License Change]
+    * The license is changed to MIT License.
 0.06 2023-02-08
   [Prerequirement Changes]
     * SPVM 0.9691+ is needed.
