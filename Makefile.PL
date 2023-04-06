@@ -54,8 +54,6 @@ WriteMakefile(
 );
 sub MY::postamble {
   
-  use SPVM::Builder::Util::API;
-  
   my $make_rule = "";
   
   unless ($no_build_spvm_modules) {
