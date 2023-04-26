@@ -21,9 +21,9 @@ The MIME::QuotedPrint class of L<SPVM> has methods for Quoted-Printable encoding
 
 =head2 encode_qp
 
-  static method encode_qp : string ($str : string, $eol = undef : string, $binmode = 0 : int)
+  static method encode_qp : string ($string : string, $eol = undef : string, $binmode = 0 : int)
 
-Returns an Quoted-Printable encoded version of the string $str.
+Returns an Quoted-Printable encoded version of the string $string.
 
 The second argument $eol is the line-ending sequence to use.  It is
 optional and defaults to C<\n>.
@@ -50,12 +50,12 @@ that any C<\n> in the original data is encoded as well.
 
 =head2 decode_qp
   
-  static method decode_qp : string ($str : string);
+  static method decode_qp : string ($string : string);
 
-Returns the plain text version of the Quoted-Printable string $str.
+Returns the plain text version of the Quoted-Printable string $string.
 
 The lines of the result are C<\n> terminated, even if
-the $str argument contains C<\r\n> terminated lines.
+the $string argument contains C<\r\n> terminated lines.
 
 =head1 Distribution Containing This Class
 
