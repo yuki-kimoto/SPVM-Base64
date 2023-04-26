@@ -48,6 +48,10 @@ An $eol of "" (the empty string) is special.  In this case, no "soft
 line breaks" are introduced and binary mode is effectively enabled so
 that any C<\n> in the original data is encoded as well.
 
+Exceptions:
+
+The $string must be defined. Otherwise an exception is thrown.
+
 =head2 decode_qp
   
   static method decode_qp : string ($string : string);
@@ -56,6 +60,10 @@ Returns the plain text version of the Quoted-Printable string $string.
 
 The lines of the result are C<\n> terminated, even if
 the $string argument contains C<\r\n> terminated lines.
+
+Exceptions:
+
+The $string must be defined. Otherwise an exception is thrown.
 
 =head1 Distribution Containing This Class
 

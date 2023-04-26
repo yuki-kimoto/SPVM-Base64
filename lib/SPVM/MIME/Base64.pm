@@ -35,6 +35,10 @@ characters each and it will end with $eol unless it is empty.
 Pass an empty string as the $eol if you do not want the encoded string
 to be broken into lines.
 
+Exceptions:
+
+The $string must be defined. Otherwise an exception is thrown.
+
 =head2 decode_base64
 
   static method decode_base64 : string ($string : string);
@@ -44,6 +48,10 @@ Decodes a Base64 string $string to a string, and returns it.
 Any character not part of the 65-character base64 subset is
 silently ignored.  Characters occurring after a C<=> padding character
 are never decoded.
+
+Exceptions:
+
+The $string must be defined. Otherwise an exception is thrown.
 
 =head2 encoded_base64_length
 
@@ -55,6 +63,10 @@ encoding it.
 This will return the same value as the length of the returned value of the L</"encode_base64"> method,
 but should be more efficient.
 
+Exceptions:
+
+The $string must be defined. Otherwise an exception is thrown.
+
 =head2 decoded_base64_length
 
   static method decoded_base64_length : int ($string : string);
@@ -64,6 +76,10 @@ decoding it.
 
 This will return the same value as the length of the returned value of the L</"decode_base64"> method,
 but should be more efficient.
+
+Exceptions:
+
+The $string must be defined. Otherwise an exception is thrown.
 
 =head1 Other Modules in This Distribution
 
