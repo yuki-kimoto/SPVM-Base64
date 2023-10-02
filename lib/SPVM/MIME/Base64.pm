@@ -37,7 +37,7 @@ to be broken into lines.
 
 Exceptions:
 
-The $string must be defined. Otherwise an exception is thrown.
+$string must be defined. Otherwise an exception is thrown.
 
 =head2 decode_base64
 
@@ -51,7 +51,7 @@ are never decoded.
 
 Exceptions:
 
-The $string must be defined. Otherwise an exception is thrown.
+$string must be defined. Otherwise an exception is thrown.
 
 =head2 encoded_base64_length
 
@@ -65,7 +65,7 @@ but should be more efficient.
 
 Exceptions:
 
-The $string must be defined. Otherwise an exception is thrown.
+$string must be defined. Otherwise an exception is thrown.
 
 =head2 decoded_base64_length
 
@@ -79,7 +79,7 @@ but should be more efficient.
 
 Exceptions:
 
-The $string must be defined. Otherwise an exception is thrown.
+$string must be defined. Otherwise an exception is thrown.
 
 =head1 Other Modules in This Distribution
 

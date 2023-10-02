@@ -50,7 +50,7 @@ that any C<\n> in the original data is encoded as well.
 
 Exceptions:
 
-The $string must be defined. Otherwise an exception is thrown.
+$string must be defined. Otherwise an exception is thrown.
 
 =head2 decode_qp
   
@@ -63,7 +63,7 @@ the $string argument contains C<\r\n> terminated lines.
 
 Exceptions:
 
-The $string must be defined. Otherwise an exception is thrown.
+$string must be defined. Otherwise an exception is thrown.
 
 =head1 Distribution Containing This Class
 
