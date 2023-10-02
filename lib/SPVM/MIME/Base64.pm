@@ -1,6 +1,6 @@
 package SPVM::MIME::Base64;
 
-our $VERSION = "1.001002";
+our $VERSION = "1.001003";
 
 1;
 
