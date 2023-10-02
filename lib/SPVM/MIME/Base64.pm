@@ -23,7 +23,7 @@ The MIME::Base64 class of L<SPVM> has methods for L<Base64|https://en.wikipedia.
 
 =head2 encode_base64
 
-  static method encode_base64 : string ($string : string, $eol : string = undef);
+C<static method encode_base64 : string ($string : string, $eol : string = undef);>
 
 Encodes the string $string to a Base64 string, and returns it.
 
@@ -41,7 +41,7 @@ $string must be defined. Otherwise an exception is thrown.
 
 =head2 decode_base64
 
-  static method decode_base64 : string ($string : string);
+C<static method decode_base64 : string ($string : string);>
 
 Decodes a Base64 string $string to a string, and returns it.
 
@@ -55,7 +55,7 @@ $string must be defined. Otherwise an exception is thrown.
 
 =head2 encoded_base64_length
 
-  static method encoded_base64_length : int ($string : string, $eol : string = undef);
+C<static method encoded_base64_length : int ($string : string, $eol : string = undef);>
 
 Returns the length that the encoded string would have without actually
 encoding it.
@@ -69,7 +69,7 @@ $string must be defined. Otherwise an exception is thrown.
 
 =head2 decoded_base64_length
 
-  static method decoded_base64_length : int ($string : string);
+C<static method decoded_base64_length : int ($string : string);>
 
 Returns the length that the decoded string would have without actually
 decoding it.
