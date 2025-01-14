@@ -3,6 +3,7 @@
     * Update .gitignore and MANIFEST.SKIP.
   [Changes]
     * Add version_from MIME::Base64 to MIME::QuotedPrint.
+    * Link stdc++ explictly.
   [Requirment Changes]
     * Require SPVM 0.990038.
   
