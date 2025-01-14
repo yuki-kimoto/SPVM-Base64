@@ -1,6 +1,8 @@
 1.002 2025-01-14
   [Internal Changes]
     * Update .gitignore and MANIFEST.SKIP.
+  [Changes]
+    * Add version_from MIME::Base64 to MIME::QuotedPrint.
     
 1.001003 2023-10-02
   [Exception Message Changes]

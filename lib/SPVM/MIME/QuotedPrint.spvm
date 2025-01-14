@@ -2,6 +2,8 @@
 # MIT License
 
 class MIME::QuotedPrint  {
+  version_from MIME::Base64;
+  
   native static method encode_qp : string ($string : string, $eol : string = undef, $binmode : int = 0);
   
   native static method decode_qp : string ($string : string);
