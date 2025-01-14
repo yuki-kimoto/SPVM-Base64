@@ -3,7 +3,9 @@
     * Update .gitignore and MANIFEST.SKIP.
   [Changes]
     * Add version_from MIME::Base64 to MIME::QuotedPrint.
-    
+  [Requirment Changes]
+    * Require SPVM 0.990038.
+  
 1.001003 2023-10-02
   [Exception Message Changes]
     * Improve English of exception messages.
