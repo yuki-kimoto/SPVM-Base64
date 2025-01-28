@@ -310,7 +310,7 @@ class TestCase::MIME::Base64 {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -354,7 +354,7 @@ class TestCase::MIME::Base64 {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -425,7 +425,7 @@ class TestCase::MIME::Base64 {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -483,7 +483,7 @@ class TestCase::MIME::Base64 {
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 }

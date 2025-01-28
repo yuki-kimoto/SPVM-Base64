@@ -155,7 +155,7 @@ TUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~=7F=80=81=82=83=84=85=86=87=88=
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 
@@ -292,7 +292,7 @@ y. -- H. L. Mencken=\n",
         return 0;
       }
     }
-    $@ = undef;
+    
     return 1;
   }
 

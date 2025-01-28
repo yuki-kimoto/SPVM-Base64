@@ -14,8 +14,7 @@ use SPVM 'MIME::Base64';
 
 my $api = SPVM::api();
 
-# Start objects count
-my $start_memory_blocks_count = $api->get_memory_blocks_count();
+my $start_memory_blocks_count = $api->get_memory_blocks_count;
 
 # encode_base64
 {
@@ -48,7 +47,8 @@ my $start_memory_blocks_count = $api->get_memory_blocks_count();
   is($SPVM::MIME::Base64::VERSION, SPVM::Fn->get_version_string('MIME::Base64'));
 }
 
-# All object is freed
+SPVM::Fn->destroy_runtime_permanent_vars;
+
 my $end_memory_blocks_count = $api->get_memory_blocks_count;
 is($end_memory_blocks_count, $start_memory_blocks_count);
 
